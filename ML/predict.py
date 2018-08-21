@@ -23,16 +23,16 @@ Has Credit Card: Yes
 Is Active Member: Yes
 Estimated Salary: 50000"""
 a = 0.0
-Geograpy = int(sys.argv[1])
-Credit_Score = int(sys.argv[2])
-Gender = int(sys.argv[3])
-Age = int(sys.argv[4])
-Tenure = int(sys.argv[5])
-Balance = int(sys.argv[6])
-Products = int(sys.argv[7])
-CreditCard = int(sys.argv[8])
-Member = int(sys.argv[9])
-Salary = int(sys.argv[10])
+Geograpy = 1 #int(sys.argv[1])
+Credit_Score = 600 #int(sys.argv[2])
+Gender = 1 #int(sys.argv[3])
+Age = 21 #int(sys.argv[4])
+Tenure = 3 #int(sys.argv[5])
+Balance = 20000 #int(sys.argv[6])
+Products = 2 #int(sys.argv[7])
+CreditCard = 1 #int(sys.argv[8])
+Member = 1 #int(sys.argv[9])
+Salary = 50000 #int(sys.argv[10])
 
 
 x = [a, Geograpy, Credit_Score, Gender, Age, Tenure, Balance, Products, CreditCard, Member, Salary]
@@ -40,7 +40,6 @@ new_prediction = classifier.predict(sc.transform(np.array([x])))
 #new_prediction = classifier.predict(sc.transform(np.array([[0.0, 0, 600, 1, 40, 3, 60000, 2, 1, 1, 50000]])))
 new_prediction = (new_prediction > 0.5)
 
-print(Salary)
 print(''.join(new_prediction))
 
 sys.stdout.flush()

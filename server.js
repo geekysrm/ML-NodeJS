@@ -43,17 +43,18 @@ app.get('/py',(req,res) => {
   });
 */
 
-res.write("py\n");
+let output = '';
 
 var spawn = require("child_process").spawn;
-var process = spawn('python',["./ML/predict.py",1,600,1,40,3,60000,2,1,1,50000]);
+var process = spawn('python',["./ML/predict.py"]);
 
 process.stdout.on('data', function (data){
   console.log(data.toString());
-  res.write(data.toString());
+
+  output = output + data.toString();
 });
 
-//res.send(" END ");
+res.send(output);
 
 });
 
