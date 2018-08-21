@@ -73,6 +73,7 @@ Number of Products: 2
 Has Credit Card: Yes
 Is Active Member: Yes
 Estimated Salary: 50000"""
+"""
 a = 0.0
 Geograpy = 1 #int(sys.argv[1])
 Credit_Score = 600 #int(sys.argv[2])
@@ -96,3 +97,4 @@ print(new_prediction)
 # Making the Confusion Matrix
 from sklearn.metrics import confusion_matrix
 cm = confusion_matrix(y_test, y_pred)
+"""

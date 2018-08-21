@@ -19,12 +19,12 @@ let py = new Promise( (resolve,reject) => {
     resolve(data);
   });
 
-  /*
+  
   process.stderr.on('data', function (data){
     console.log(data.toString());
     reject(data);
   });
-  */
+  
 
 });
 
@@ -42,19 +42,20 @@ app.get('/py',(req,res) => {
     res.end(err.toString());
   });
 */
-
-let output = '';
+let out = '';
 
 var spawn = require("child_process").spawn;
 var process = spawn('python',["./ML/predict.py"]);
 
 process.stdout.on('data', function (data){
   console.log(data.toString());
-
-  output = output + data.toString();
+  out = out + data.toString();
 });
 
-res.send(output);
+process.stdout.on('end', function(){
+  res.send(out);
+});
+
 
 });
 

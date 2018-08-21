@@ -6,7 +6,7 @@ Created on Mon Aug 20 22:32:39 2018
 @author: sonu
 """
 
-from ann_single import *
+from ann_single import classifier, sc, np
 
 import sys
 
@@ -40,6 +40,6 @@ new_prediction = classifier.predict(sc.transform(np.array([x])))
 #new_prediction = classifier.predict(sc.transform(np.array([[0.0, 0, 600, 1, 40, 3, 60000, 2, 1, 1, 50000]])))
 new_prediction = (new_prediction > 0.5)
 
-print(''.join(new_prediction))
+print(new_prediction)
 
 sys.stdout.flush()
