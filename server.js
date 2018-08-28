@@ -8,7 +8,7 @@ app.use(morgan('combined'));
 app.get('/',(req,res) => {
     res.send("Hello World");
 });
-
+/*
 let py = new Promise( (resolve,reject) => {
 
   var spawn = require("child_process").spawn;
@@ -27,25 +27,14 @@ let py = new Promise( (resolve,reject) => {
   
 
 });
+*/
 
 app.get('/py',(req,res) => {
-/*
-  res.write("py\n");
 
-  py
-  .then( data => {
-    console.log(data.toString());
-    res.end(data.toString());
-  })
-  .catch( err => {
-    console.log(err.toString());
-    res.end(err.toString());
-  });
-*/
 let out = '';
 
 var spawn = require("child_process").spawn;
-var process = spawn('python',["./ML/predict.py"]);
+var process = spawn('python',["./ML/ml.py","France",619,1,42,2,0,1,1,1,101348.88]);
 
 process.stdout.on('data', function (data){
   console.log(data.toString());
@@ -53,9 +42,15 @@ process.stdout.on('data', function (data){
 });
 
 process.stdout.on('end', function(){
-  res.send(out);
+  if(out.substring(2,3) === "F")
+  {
+    res.send("False");
+  }
+  else
+  {
+    res.send(("True"));
+  }
 });
-
 
 });
 
